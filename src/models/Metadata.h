@@ -6,3 +6,20 @@
 #define NIXMETAFS_METADATA_H
 
 #endif //NIXMETAFS_METADATA_H
+
+#include "../Common.h"
+
+namespace  nixMetaFS {
+    namespace Models {
+        class Metadata {
+        private:
+            int m_Id;
+            string m_Description;
+            string m_AdditionalComments;
+        public:
+
+
+
+        };
+    }
+}
