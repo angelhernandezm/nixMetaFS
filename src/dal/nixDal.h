@@ -7,7 +7,9 @@
 
 #include "../Common.h"
 #include "MySqlRequest.h"
-#include "mysql_connection.h"
+#include <mysql_connection.h>
+#include <mysql_driver.h>
+#include <mysql_error.h>
 
 // https://stackoverflow.com/questions/16424828/how-to-connect-mysql-database-using-c
 
