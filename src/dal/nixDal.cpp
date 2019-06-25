@@ -4,11 +4,13 @@
 
 #include "nixDal.h"
 
+extern "C" {
+  sql::Driver* get_driver_instance();
+}
+
 void nixMetaFS::Dal::nixDal::GetConnection(MySqlRequest& request) {
     try {
-       // request.Driver_set(get_driver_instance());
-
-
+        request.Driver_set(get_driver_instance());
 
     } catch(sql::SQLException &e) {
 
