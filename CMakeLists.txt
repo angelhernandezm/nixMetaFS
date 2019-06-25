@@ -13,7 +13,7 @@ pkg_check_modules(libglade-2.0 REQUIRED)
 
 include_directories(${GTK_INCLUDE_DIRS})
 link_directories(${LIBMYSQLCLIENT_LIBRARY_DIRS})
-set(SOURCE_FILES src/main.cpp src/abstractions/IModel.h src/core/BaseModel.h src/Common.h src/models/Metadata.h src/dal/nixDal.cpp src/dal/nixDal.h src/dal/MySqlRequest.cpp src/dal/MySqlRequest.h src/abstractions/IDisposable.h)
-add_executable(nixMetaFS ${SOURCE_FILES} src/resources/generated/nix-metafs-properties.cpp   src/abstractions/IModel.h src/core/BaseModel.h src/Common.h src/models/Metadata.h src/dal/nixDal.cpp src/dal/nixDal.h src/dal/MySqlRequest.cpp src/dal/MySqlRequest.h)
+set(SOURCE_FILES src/main.cpp src/abstractions/IModel.h src/core/BaseModel.h src/Common.h src/models/Metadata.h src/dal/nixDal.cpp src/dal/nixDal.h src/dal/MySqlRequest.cpp src/dal/MySqlRequest.h src/abstractions/IDisposable.h src/core/BaseController.cpp src/core/BaseController.h src/app/MainWindowController.cpp src/app/MainWindowController.h)
+add_executable(nixMetaFS ${SOURCE_FILES} src/resources/generated/nix-metafs-properties.cpp   src/abstractions/IModel.h src/core/BaseModel.h src/Common.h src/models/Metadata.h src/dal/nixDal.cpp src/dal/nixDal.h src/dal/MySqlRequest.cpp src/dal/MySqlRequest.h src/core/BaseController.cpp src/core/BaseController.h src/app/MainWindowController.cpp src/app/MainWindowController.h)
 
 target_link_libraries(${PROJECT_NAME} ${GTK_LIBRARIES} mysqlcppconn)

@@ -18,5 +18,8 @@
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
+#include <gtk/gtk.h>
+#include <ctime>
+#include <sstream>
 
 using namespace std;
