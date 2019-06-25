@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/nix-metafs">
+    <file compressed="true">/home/angel/Code/clion/nixMetaFS/src/resources/ui/nix-metafs-properties.ui</file>
+  </gresource>
+</gresources>
