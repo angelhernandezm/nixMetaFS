@@ -12,13 +12,14 @@ namespace  nixMetaFS {
     namespace Core {
         class MainWindowController: BaseController {
         private:
-            static MainWindowController *Self;
-            static GtkApplication *Application;
-            GtkBuilder *builder;
+            static MainWindowController *m_Self;
+            static GtkApplication *m_Application;
+            std::map<std::string, GtkWidget*> m_Controls;
 
         public:
             MainWindowController();
             ~MainWindowController();
+            void SetupUI(GtkBuilder* builder);
             static void StartUp(GtkApplication &app, gpointer user_data);
 
         protected:

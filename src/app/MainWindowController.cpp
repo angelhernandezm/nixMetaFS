@@ -6,11 +6,11 @@
 
 using namespace nixMetaFS::Core;
 
-MainWindowController* MainWindowController::Self;
-GtkApplication* MainWindowController::Application;
+MainWindowController *MainWindowController::m_Self;
+GtkApplication *MainWindowController::m_Application;
 
 MainWindowController::MainWindowController() {
-
+    m_Self = this;
 }
 
 MainWindowController::~MainWindowController() {
@@ -21,32 +21,26 @@ void MainWindowController::Initialize() {
     // This doesn't apply for this class
 }
 
-void MainWindowController::StartUp(GtkApplication &app, gpointer user_data) {
-    Application = &app;
-    GError *err = nullptr;
-    Self->builder = gtk_builder_new();
-   // gtk_builder_add_from_file(self->builder, "./../../ui/SqlTestHarness.glade", &err);
+void MainWindowController::SetupUI(GtkBuilder *builder) {
+    auto controlNames = {"frmMain-nixMetaFS", "txtDescription"};
 
-    if (err) {
-        g_error(err->message);
-        g_error_free(err);
-        throw std::runtime_error("Unable to load UI. Please ensure glade file exists.");
-    }
-
-  /*   self->SetUpUI();
-    self->ConnectSignals();
-    g_object_unref (G_OBJECT (self->builder));
-    gtk_application_add_window(&app, (GtkWindow*) self->Controls.at("frmMain"));
-    gtk_widget_show ((GtkWidget*) (GtkWindow*) self->Controls.at("frmMain"));
-
-    self->Context = DataContext(app, ParentStub<Contact>([&](bool ignoreFields){self->Refresh(ignoreFields);},
-                                                         [&](bool controlState) {self->EnableOrDisableFieldsBasedOnMode(controlState);},
-                                                         [&](UiFieldOperation op, Contact& c){self->ReadOrWriteToFieldsOnUi(op, c);},
-                                                         [&] {self->FetchDataset();}));
-
-    self->Context.CanEdit_set(false);
-
-    self->FetchDataset();
-
-    g_timeout_add_seconds(1, [&](gpointer data)->gboolean {self->UpdateStatusBar(data);}, self->Controls.at("sbrMain") ); */
+    std::for_each(controlNames.begin(), controlNames.end(), [&](std::string controlName) {
+        m_Controls.insert(std::pair<std::string, GtkWidget*>(controlName,
+                          GTK_WIDGET (gtk_builder_get_object(builder, controlName.c_str()))));
+    });
 }
+
+void MainWindowController::StartUp(GtkApplication &app, gpointer user_data) {
+    m_Application = &app;
+
+    try {
+        auto builder = gtk_builder_new_from_resource(Main_Window_Resource_Name);
+        m_Self->SetupUI(builder);
+        g_object_unref(G_OBJECT (builder));
+        auto frmMainWindow = m_Self->m_Controls.at("frmMain-nixMetaFS");
+        gtk_application_add_window(&app, (GtkWindow *) frmMainWindow);
+        gtk_widget_show((GtkWidget *) (GtkWindow *) frmMainWindow);
+    } catch(std::exception& ex) {
+        throw std::runtime_error("Unable to load UI. Please ensure resource file was linked to application.");
+    }
+ }

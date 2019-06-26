@@ -23,3 +23,5 @@
 #include <sstream>
 
 using namespace std;
+
+#define Main_Window_Resource_Name "/org/gnome/nix-metafs/home/angel/Code/clion/nixMetaFS/src/resources/ui/nix-metafs-properties.ui"
