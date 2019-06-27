@@ -12,6 +12,7 @@
 #include <mysql_error.h>
 
 // https://stackoverflow.com/questions/16424828/how-to-connect-mysql-database-using-c
+// sudo apt-get install libtinyxml2-2v5 --> XML Parser
 
 namespace  nixMetaFS {
     namespace Dal {

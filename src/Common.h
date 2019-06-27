@@ -5,8 +5,6 @@
 #ifndef NIXMETAFS_COMMON_H
 #define NIXMETAFS_COMMON_H
 
-#endif //NIXMETAFS_COMMON_H
-
 #include <stdlib.h>
 #include <string>
 #include <algorithm>
@@ -21,7 +19,10 @@
 #include <gtk/gtk.h>
 #include <ctime>
 #include <sstream>
+#include <tinyxml.h>
 
 using namespace std;
 
 #define Main_Window_Resource_Name "/org/gnome/nix-metafs/home/angel/Code/clion/nixMetaFS/src/resources/ui/nix-metafs-properties.ui"
+
+#endif //NIXMETAFS_COMMON_H

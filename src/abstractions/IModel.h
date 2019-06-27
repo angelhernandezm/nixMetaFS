@@ -5,8 +5,6 @@
 #ifndef NIXMETAFS_IMODEL_H
 #define NIXMETAFS_IMODEL_H
 
-#endif //NIXMETAFS_IMODEL_H
-
 #include "../Common.h"
 
 namespace  nixMetaFS {
@@ -23,3 +21,5 @@ namespace  nixMetaFS {
         };
     }
 }
+
+#endif //NIXMETAFS_IMODEL_H

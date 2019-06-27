@@ -5,7 +5,6 @@
 #ifndef NIXMETAFS_IDISPOSABLE_H
 #define NIXMETAFS_IDISPOSABLE_H
 
-#endif //NIXMETAFS_IDISPOSABLE_H
 
 namespace  nixMetaFS {
     namespace Abstractions {
@@ -17,3 +16,5 @@ namespace  nixMetaFS {
         };
     }
 }
+
+#endif //NIXMETAFS_IDISPOSABLE_H
