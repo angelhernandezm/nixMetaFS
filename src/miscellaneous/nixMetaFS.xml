@@ -9,4 +9,7 @@
         <command name="CreateMetadataTable"
                  statement="CREATE TABLE Metadata (Pk INT AUTO_INCREMENT PRIMARY KEY, fileId INT, fileName VARCHAR(255), filePath VARCHAR(2048), description VARCHAR(1024), comments VARCHAR(1024))"/>
     </commands>
+    <appSettings>
+        <add key="Somekey" value="Somevalue"/>
+    </appSettings>
 </config>

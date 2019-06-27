@@ -11,6 +11,9 @@
 #include <vector>
 #include <memory>
 #include <map>
+#include <functional>
+#include <typeinfo>
+#include <stdio.h>
 #include <iostream>
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
@@ -20,6 +23,7 @@
 #include <ctime>
 #include <sstream>
 #include <tinyxml.h>
+
 
 using namespace std;
 

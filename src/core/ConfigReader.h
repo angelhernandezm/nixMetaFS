@@ -11,6 +11,7 @@
 namespace nixMetaFS {
     namespace Core {
         class ConfigReader {
+            bool LocateConfigFile();
 
         };
     }
