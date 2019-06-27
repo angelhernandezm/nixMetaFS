@@ -23,6 +23,8 @@
 #include <ctime>
 #include <sstream>
 #include <tinyxml.h>
+#include <mutex>
+#include <thread>
 
 
 using namespace std;
