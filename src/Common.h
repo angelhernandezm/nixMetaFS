@@ -27,6 +27,7 @@
 #include <thread>
 #include <future>
 #include <experimental/filesystem>
+#include <typeindex>
 
 using namespace std;
 

@@ -21,23 +21,34 @@ ConfigReader::ConfigReader(string filePath) {
 }
 
 
-bool ConfigReader::LocateConfigFile() {
-
-
-    return true;
-}
-
 bool ConfigReader::Initialize() {
     auto retval = false;
     auto configFile = m_filePath.substr(0, m_filePath.find_last_of("\\/") + 1);
     configFile = configFile.append(ConfigFile);
-
+    vector<type_index> types{typeid(ConnectionString), typeid(Command), typeid(AppSetting)};
 
     if (fs::exists(fs::path(configFile))) {
+        try {
+            TiXmlDocument config(configFile);
+            config.LoadFile();
 
+            for_each(types.begin(), types.end(), [&](std::type_index &t) {
 
-        retval = true;
+            });
+
+            retval = true;
+        } catch (std::exception &e) {
+
+        }
     }
+
+    return retval;
+}
+
+template<typename T>
+vector<T> ConfigReader::RehydrateFromXml(TiXmlHandle &hRoot, TiXmlElement *pElem, string elementName) {
+    vector<T> retval;
+
 
     return retval;
 }
