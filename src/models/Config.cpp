@@ -7,8 +7,10 @@
 using namespace nixMetaFS::Models;
 
 Config *Config::m_Self;
+std::mutex g_Config_mutex;
 
 const Config &Config::Current_get() {
+    Config newConfig; // If singleton hasn't been created, we'll create one
     return *m_Self;
 }
 

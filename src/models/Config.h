@@ -10,8 +10,6 @@
 #include "../models/AppSetting.h"
 #include "../models/ConnectionString.h"
 
-std::mutex g_Config_mutex;
-
 namespace nixMetaFS {
     namespace Models {
         class Config {
@@ -23,9 +21,7 @@ namespace nixMetaFS {
 
         public:
             Config();
-
             ~Config();
-
             const static Config &Current_get();
             const std::vector<Command> &Commands_get();
             const std::vector<AppSetting> &AppSettings_get();

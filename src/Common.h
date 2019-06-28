@@ -25,9 +25,12 @@
 #include <tinyxml.h>
 #include <mutex>
 #include <thread>
-
+#include <future>
+#include <experimental/filesystem>
 
 using namespace std;
+
+#define ConfigFile "nixMetaFS.xml"
 
 #define Main_Window_Resource_Name "/org/gnome/nix-metafs/home/angel/Code/clion/nixMetaFS/src/resources/ui/nix-metafs-properties.ui"
 
