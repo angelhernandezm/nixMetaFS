@@ -17,21 +17,17 @@ namespace nixMetaFS {
             bool m_isenabled;
 
         public:
+            ConnectionString();
             const string &Server_get();
-
             const string &Username_get();
-
             const string &Password_get();
-
             const bool &IsEnabled_get();
-
             void Server_set(string server);
-
             void Username_set(string username);
-
             void Password_set(string password);
-
             void IsEnabled_set(bool isenabled);
+
+            ConnectionString(const char *server, const char *username, const char *password, bool isenabled);
         };
     }
 }

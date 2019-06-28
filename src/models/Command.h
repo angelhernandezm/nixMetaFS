@@ -14,12 +14,12 @@ namespace nixMetaFS {
             string m_name;
             string m_statement;
         public:
+            Command();
+
+            Command(const char *name, const char *statement);
             const string &Name_get();
-
             const string &Statement_get();
-
             void Name_set(string name);
-
             void Statement_set(string statement);
         };
     }

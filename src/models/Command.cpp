@@ -21,3 +21,12 @@ void Command::Name_set(string name) {
 void Command::Statement_set(string statement) {
     m_statement = statement;
 }
+
+Command::Command() {
+
+}
+
+Command::Command(const char *name, const char *statement) : Command() {
+    m_name.append(name);
+    m_statement.append(statement);
+}

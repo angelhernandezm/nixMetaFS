@@ -21,3 +21,12 @@ void AppSetting::Key_set(string key) {
 void AppSetting::Value_set(string value) {
     m_value = value;
 }
+
+AppSetting::AppSetting() {
+
+}
+
+AppSetting::AppSetting(const char *key, const char *value) : AppSetting() {
+    m_key.append(key);
+    m_value.append(value);
+}

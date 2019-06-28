@@ -37,3 +37,15 @@ void ConnectionString::Password_set(string password) {
 void ConnectionString::IsEnabled_set(bool isenabled) {
     m_isenabled = isenabled;
 }
+
+ConnectionString::ConnectionString() {
+
+}
+
+ConnectionString::ConnectionString(const char *server, const char *username, const char *password, bool isenabled)
+        : ConnectionString() {
+    m_isenabled = isenabled;
+    m_server.append(server);
+    m_username.append(username);
+    m_password.append(password);
+}

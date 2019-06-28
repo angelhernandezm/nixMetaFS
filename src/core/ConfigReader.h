@@ -16,13 +16,9 @@ namespace nixMetaFS {
         class ConfigReader {
         private:
             string m_filePath;
-
             bool Initialize();
             static ConfigReader *m_Self;
-            const Config &m_Config = Config::Current_get();
-
-            template<typename T>
-            vector<T> RehydrateFromXml(TiXmlHandle &hRoot, TiXmlElement *pElem, string elementName);
+            Config &m_Config = const_cast<Config &>(Config::Current_get());
 
         public:
             ConfigReader(string filePath);

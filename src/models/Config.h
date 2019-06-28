@@ -26,6 +26,12 @@ namespace nixMetaFS {
             const std::vector<Command> &Commands_get();
             const std::vector<AppSetting> &AppSettings_get();
             const std::vector<ConnectionString> &ConnectionStrings_get();
+
+            void Commands_set(std::vector<Command> commands);
+
+            void AppSettings_set(std::vector<AppSetting> appSettings);
+
+            void ConnectionStrings_set(std::vector<ConnectionString> connectionStrings);
         };
     }
 }

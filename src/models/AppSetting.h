@@ -7,6 +7,7 @@
 
 #include "../Common.h"
 
+
 namespace nixMetaFS {
     namespace Models {
         class AppSetting {
@@ -15,12 +16,14 @@ namespace nixMetaFS {
             string m_value;
 
         public:
+            AppSetting();
+
+            AppSetting(const char *key, const char *value);
+
             const string &Key_get();
 
             const string &Value_get();
-
             void Key_set(string key);
-
             void Value_set(string value);
         };
     }

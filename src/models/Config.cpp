@@ -26,6 +26,25 @@ const std::vector<ConnectionString> &Config::ConnectionStrings_get() {
     return m_connectionStrings;
 }
 
+void Config::Commands_set(std::vector<Command> commands) {
+    m_commands = commands;
+
+    //m_commands.assign(commands.begin(), commands.end());
+}
+
+void Config::AppSettings_set(std::vector<AppSetting> appSettings) {
+    m_appSettings = appSettings;
+
+    // m_appSettings.assign(appSettings.begin(), appSettings.end());
+}
+
+void Config::ConnectionStrings_set(std::vector<ConnectionString> connectionStrings) {
+    m_connectionStrings = connectionStrings;
+
+    // m_connectionStrings.assign(connectionStrings.begin(), connectionStrings.end());
+}
+
+
 Config::Config() {
     std::lock_guard<std::mutex> guard(g_Config_mutex);
     if (m_Self == nullptr)
