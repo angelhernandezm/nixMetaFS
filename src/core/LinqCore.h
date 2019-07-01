@@ -60,9 +60,8 @@ namespace nixMetaFS {
                         if (condition(p))
                             retval++;
                     }
-
-                    return retval;
                 }
+                return retval;
             }
 
             /*

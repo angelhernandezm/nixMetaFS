@@ -26,35 +26,27 @@ bool ConfigReader::Initialize() {
     auto retval = false;
     auto configFile = m_filePath.substr(0, m_filePath.find_last_of("\\/") + 1);
     configFile = configFile.append(ConfigFile);
-    //vector<type_index> types{typeid(ConnectionString), typeid(Command), typeid(AppSetting)};
 
     if (fs::exists(fs::path(configFile))) {
         try {
             TiXmlDocument config(configFile);
             if (config.LoadFile()) {
                 TiXmlElement *pElem;
+                Setting<Command> cmd;
                 TiXmlHandle hDoc(&config);
+                Setting<AppSetting> appSettings;
+                Setting<ConnectionString> connectionStrings;
                 pElem = hDoc.FirstChildElement().Element();
 
                 if (pElem) {
-                    Setting<Command> cmd;
-                    Setting<AppSetting> appSettings;
-                    Setting<ConnectionString> connectionStrings;
                     auto hRoot = TiXmlHandle(pElem);
-                    auto a = cmd.RehydrateFromXml(hRoot, "commands");
-                    auto b = appSettings.RehydrateFromXml(hRoot, "appSettings");
-                    auto c = connectionStrings.RehydrateFromXml(hRoot, "connectionStrings");
-
-                    //TODO: Investigate SegmentationFault when setting std::vector
-
-                    /*  m_Config.Commands_set(a);
-                      m_Config.AppSettings_set(b);
-                      m_Config.ConnectionStrings_set(c); */
-
-                    /* auto resultCmd = std::async(std::launch::async, [&]{m_Config.Commands_set(cmd.RehydrateFromXml(hRoot, "commands")); });
-                    auto resultAppSettings = std::async(std::launch::async, [&]{ m_Config.AppSettings_set(appSettings.RehydrateFromXml(hRoot, "appSettings")); });
-                    auto resultConnectionStrings = std::async(std::launch::async, [&]{ m_Config.ConnectionStrings_set(connectionStrings.RehydrateFromXml(hRoot, "connectionStrings")); }); */
-
+                    std::async(std::launch::async,
+                               [&] { m_Config.Commands_set(cmd.RehydrateFromXml(hRoot, "commands")); });
+                    std::async(std::launch::async,
+                               [&] { m_Config.AppSettings_set(appSettings.RehydrateFromXml(hRoot, "appSettings")); });
+                    std::async(std::launch::async, [&] {
+                        m_Config.ConnectionStrings_set(connectionStrings.RehydrateFromXml(hRoot, "connectionStrings"));
+                    });
                     retval = true;
                 }
             }

@@ -33,8 +33,7 @@ namespace nixMetaFS {
 
                 if (pElem) {
                     for (pElem; pElem; pElem = pElem->NextSiblingElement()) {
-                        AppSetting appSetting(pElem->Attribute("key"), pElem->Attribute("value"));
-                        retval.push_back(appSetting);
+                        retval.push_back(AppSetting(pElem->Attribute("key"), pElem->Attribute("value")));
                     }
                 }
                 return retval;
@@ -73,8 +72,7 @@ namespace nixMetaFS {
 
                 if (pElem) {
                     for (pElem; pElem; pElem = pElem->NextSiblingElement()) {
-                        Command cmd(pElem->Attribute("name"), pElem->Attribute("statement"));
-                        retval.push_back(cmd);
+                        retval.push_back(Command(pElem->Attribute("name"), pElem->Attribute("statement")));
                     }
                 }
                 return retval;

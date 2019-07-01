@@ -15,9 +15,9 @@ namespace nixMetaFS {
         class Config {
         private:
             static Config *m_Self;
-            std::vector<Command> m_commands;
-            std::vector<AppSetting> m_appSettings;
-            std::vector<ConnectionString> m_connectionStrings;
+            static std::vector<Command> m_commands;
+            static std::vector<AppSetting> m_appSettings;
+            static std::vector<ConnectionString> m_connectionStrings;
 
         public:
             Config();
@@ -26,11 +26,8 @@ namespace nixMetaFS {
             const std::vector<Command> &Commands_get();
             const std::vector<AppSetting> &AppSettings_get();
             const std::vector<ConnectionString> &ConnectionStrings_get();
-
             void Commands_set(std::vector<Command> commands);
-
             void AppSettings_set(std::vector<AppSetting> appSettings);
-
             void ConnectionStrings_set(std::vector<ConnectionString> connectionStrings);
         };
     }
