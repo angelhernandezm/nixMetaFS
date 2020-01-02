@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(nixMetaFS CXX)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pthread -fPIC")
 set(GLib_COMPILE_RESOURCES glib-compile-resources)
 
 execute_process(COMMAND glib-compile-resources --generate-source --target "/home/angel/Code/clion/nixMetaFS/src/resources/generated/nix-metafs-properties.cpp" "/home/angel/Code/clion/nixMetaFS/src/resources/nix-MetaFS.gresource.xml")
