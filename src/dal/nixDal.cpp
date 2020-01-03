@@ -14,8 +14,6 @@ void nixMetaFS::Dal::nixDal::GetConnection(MySqlRequest& request) {
 
     } catch(sql::SQLException &e) {
 
-
-
     }
 }
 

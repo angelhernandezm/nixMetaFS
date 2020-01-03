@@ -11,6 +11,7 @@ GtkApplication *MainWindowController::m_Application;
 
 MainWindowController::MainWindowController() {
     m_Self = this;
+    m_repository = std::unique_ptr<Repository>(new Repository);
 }
 
 MainWindowController::~MainWindowController() {

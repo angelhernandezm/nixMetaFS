@@ -7,6 +7,7 @@
 
 #include "../Common.h"
 #include "../core/BaseController.h"
+#include "../core/Repository.h"
 
 namespace  nixMetaFS {
     namespace Core {
@@ -24,6 +25,8 @@ namespace  nixMetaFS {
 
         protected:
             void Initialize() override;
+
+            std::unique_ptr<Repository> m_repository;
 
         };
     }
